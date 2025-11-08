@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patients-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: patients-service
+  template:
+    metadata:
+      labels:
+        app: patients-service
+    spec:
+      containers:
+      - name: patients-service
+        image: patients-service:latest
+        ports:
+        - containerPort: 8080
